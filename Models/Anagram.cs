@@ -6,7 +6,7 @@ namespace Anagram.Models
     public class AnagramCheck
     {
         public static char[] Initialwordarray;
-        public static string result;
+        public static string sortedString;
 
         public static List<string> userAnagram = new List<string>() { };
         public static List<string> FinalCheck = new List<string>() { };
@@ -14,19 +14,15 @@ namespace Anagram.Models
         public static void AnagramChecker(string userinput)
         {
             Initialwordarray = userinput.ToCharArray();
-
-            for (int i = 0; i < userinput.Length; i++)
-            {
-                Console.WriteLine(Initialwordarray[i]);
-            }
-
             Array.Sort(Initialwordarray);
-            result = new string(Initialwordarray);
-            Console.WriteLine(result);
-            FinalCheck.Add(result);
+            sortedString = new string(Initialwordarray);
+            FinalCheck.Add(sortedString);
             for (int i = 0; i < FinalCheck.Count; i++)
             {
-                Console.WriteLine(FinalCheck[i]);
+                if (FinalCheck[0] == FinalCheck[i])
+                {
+                    Console.WriteLine("Match" + FinalCheck[i]);
+                }
             }
 
         }
